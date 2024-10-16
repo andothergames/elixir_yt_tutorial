@@ -22,5 +22,7 @@ defmodule Guards do
   def return_even_numbers(value) when is_even(value), do: value
   def return_even_numbers(value) when not is_even(value), do: :not_even
 
-  # create the is_under_max_load? function from pattern matching using guards
+  def is_under_max_load?(load, max_load \\ 55)
+  def is_under_max_load?(load, max_load) when is_number(load) and load <= max_load, do: true
+  def is_under_max_load?(load, max_load) when not is_number(load) or load > max_load, do: false
 end
